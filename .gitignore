@@ -1,0 +1,19 @@
+# .NET Build Folders
+server/bin/
+server/obj/
+
+# User-specific files
+server/.vs/
+server/.vscode/
+server/.idea/
+server/*.user
+server/*.suo
+client/.vscode/
+client/.vs/
+client/node_modules/
+
+# OS generated files
+server/Thumbs.db
+server/Desktop.ini
+
+
