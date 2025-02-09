@@ -12,11 +12,11 @@ using System.IdentityModel.Tokens.Jwt;
 using AuthServer;
 //
 var builder = WebApplication.CreateBuilder(args);
- builder.Services.Configure<Application>(builder.Configuration.GetSection(nameof(Application)));
+builder.Services.Configure<Application>(builder.Configuration.GetSection(nameof(Application)));
 
 ///////////////////////////////
 
- builder.Services.AddSingleton<IAuthorizationMiddlewareResultHandler, CustomAuthorizationHandler>();
+builder.Services.AddSingleton<IAuthorizationMiddlewareResultHandler, CustomAuthorizationHandler>();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -38,7 +38,7 @@ builder.Services.AddSwaggerGen(options =>
     });
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
-        {
+        { 
             new OpenApiSecurityScheme
             {
         Reference = new OpenApiReference
