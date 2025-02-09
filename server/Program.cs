@@ -14,8 +14,6 @@ using AuthServer;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<Application>(builder.Configuration.GetSection(nameof(Application)));
 
-///////////////////////////////
-
 builder.Services.AddSingleton<IAuthorizationMiddlewareResultHandler, CustomAuthorizationHandler>();
 
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
@@ -24,7 +22,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
-// builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -126,10 +123,8 @@ app.MapPost("/tasks",async (ToDoDbContext dbContext,Item taskDto) =>
     return Results.Ok(new { message = $"המשימה '{task.TaskName}' נמחקה בהצלחה" });
 }); 
 
-
-// Console.WriteLine($"Environment: {app.Environment.EnvironmentName}");
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger(); 
 
     app.UseSwaggerUI(options =>
@@ -137,7 +132,7 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
         options.RoutePrefix = string.Empty; 
     });
-}
+// }
 app.UseHttpsRedirection();
 
 
