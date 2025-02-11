@@ -13,9 +13,10 @@ function saveAccessToken(authResult) {
 }
 
 function setAuthorizationBearer() {
+  console.log("try to setAuthorizationBearer");
   const accessToken = localStorage.getItem("access_token");
   if (accessToken) {
-   
+    console.log("sucsre");
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     // console.log('Authorization header set with token:', accessToken);
   }
