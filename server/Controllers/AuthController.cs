@@ -18,11 +18,13 @@ namespace AuthServer.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly ToDoDbContext _dataContext;
+        private readonly ILogger<PrivateController> _logger;
 
-        public AuthController(IConfiguration configuration, ToDoDbContext dataContext)
+        public AuthController(IConfiguration configuration, ToDoDbContext dataContext,ILogger<PrivateController> logger)
         {
             _configuration = configuration;
             _dataContext = dataContext;
+              _logger = logger;
         }
 
 
@@ -41,9 +43,11 @@ namespace AuthServer.Controllers
 [HttpPost("/api/login")]
 public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
 {
+    _logger.LogInformation("Entering post user method");
     var user = _dataContext.Users?.FirstOrDefault(u => u.Username == loginModel.Name && u.Password == loginModel.Password);
     if (user is not null)
     {
+        _logger.LogInformation("Entering jwt  method");
         var jwt = CreateJWT(user);
         await AddSession(user);
         return Ok(jwt);
