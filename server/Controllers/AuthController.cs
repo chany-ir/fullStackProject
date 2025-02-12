@@ -10,7 +10,7 @@ using System.Text.Json;
 using TodoList;
 // using Microsoft.EntityFrameworkCore; 
 
-namespace AuthServer.Controllers
+namespace TodoList.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -56,9 +56,11 @@ public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
 }
         [HttpPost("/api/register")]
         public async Task<IActionResult> Register([FromBody] LoginModel loginModel)
-        {
+        { 
+            _logger.LogInformation("Entering post register user method");
             //async Task<IActionResult>
             var name = loginModel.Name;
+             _logger.LogInformation("Entering post register user method");
             var lastId = _dataContext.Users?.Max(u => u.Id) ?? 0;
             var newUser = new User { Username = name, Password = loginModel.Password };
             _dataContext.Users?.Add(newUser);

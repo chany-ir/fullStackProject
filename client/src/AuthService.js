@@ -3,10 +3,11 @@ import axios from "axios";
 import { jwtDecode } from 'jwt-decode'
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-console.log('process.env.API_URL', process.env.REACT_APP_API_URL);
+console.log('process.env.API_URL  ' + process.env.REACT_APP_API_URL);
 setAuthorizationBearer();
 
 function saveAccessToken(authResult) {
+  console.log("pleas find the ducumrny atacfesdsds");
   localStorage.setItem("access_token", authResult.token);
   // console.log('Saved Token:', authResult.token); 
   setAuthorizationBearer();
@@ -18,7 +19,7 @@ function setAuthorizationBearer() {
   if (accessToken) {
     console.log("sucsre");
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    // console.log('Authorization header set with token:', accessToken);
+    console.log('Authorization header set with token:', accessToken);
   }
 }
 
@@ -49,7 +50,9 @@ export default {
   },
 
   register: async (name, password) => {
+    console.log("try to register",name,password);
     const res = await axios.post("api/register", { name, password });
+    console.log("try to register",res.data);
     saveAccessToken(res.data);
   },
 

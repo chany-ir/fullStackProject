@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using TodoList;
 //////
 using Microsoft.Extensions.Logging;
-namespace AuthServer.Controllers
+namespace TodoList.Controllers
 
 {
    
