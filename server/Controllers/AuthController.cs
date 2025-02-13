@@ -10,7 +10,7 @@ using System.Text.Json;
 using TodoList;
 // using Microsoft.EntityFrameworkCore; 
 
-namespace TodoList.Controllers
+namespace AuthServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
