@@ -51,7 +51,7 @@ export default {
 
   register: async (name, password) => {
     console.log("try to register",name,password);
-    const res = await axios.post("api/Auth/register", { name, password });
+    const res = await axios.post("api/register", { name, password });
     console.log("try to register",res.data);
     saveAccessToken(res.data);
   },
