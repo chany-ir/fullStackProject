@@ -67,7 +67,7 @@ modelBuilder.Entity<Session>(entity =>
     // הגדרת המפתח הראשי
     entity.HasKey(e => e.Number).HasName("PRIMARY");  // זהו השדה החדש 'number' שמוגדר כמפתח ראשי
 
-    entity.ToTable("sessions");
+    entity.ToTable("Sessions");
 
     // הגדרת האינדקס על השדה UserId
     entity.HasIndex(e => e.UserId, "user_id");
@@ -93,7 +93,7 @@ modelBuilder.Entity<Session>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("users");
+            entity.ToTable("Users");
 
             entity.HasIndex(e => e.Password, "password").IsUnique();
 

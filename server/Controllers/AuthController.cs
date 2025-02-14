@@ -44,6 +44,7 @@ namespace AuthServer.Controllers
 public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
 {
     _logger.LogInformation("Entering post user method");
+    Console.WriteLine("User found, creating JWT");
     var user = _dataContext.Users?.FirstOrDefault(u => u.Username == loginModel.Name && u.Password == loginModel.Password);
     if (user is not null)
     {
