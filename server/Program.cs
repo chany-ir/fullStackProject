@@ -64,26 +64,33 @@ ValidAudience = builder.Configuration["JWT:Audience"], // קהל היעד של �
         };
     });
 
-var devCorsPolicy = "devCorsPolicy";
+// var devCorsPolicy = "devCorsPolicy";
+
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy(devCorsPolicy, builder => {
+//         builder.AllowAnyOrigin()
+//         .AllowAnyMethod().
+//         AllowAnyHeader();
+
+//     });
+// });
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(devCorsPolicy, builder => {
-        builder.AllowAnyOrigin()
-        .AllowAnyMethod().
-        AllowAnyHeader();
-
-    });
+    options.AddPolicy("AllowAll",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
 });
-
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("ToDoDB"),
                      Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.40-mysql")));
 
 
 var app = builder.Build();
-
-app.UseCors(devCorsPolicy);
+app.UseCors("AllowAll");
+// app.UseCors(devCorsPolicy);
 app.MapGet("/", () => "chany Irom!");
 
 app.MapGet("/tasks", async (ToDoDbContext dbContext) =>
