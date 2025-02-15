@@ -55,7 +55,7 @@ public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
     }
     return Unauthorized();
 }
-        [HttpPost("register")]
+        [HttpPost("/api/register")]
         public async Task<IActionResult> Register([FromBody] LoginModel loginModel)
         { 
             _logger.LogInformation("Entering post register user method");
