@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const apiUrl = process.env.REACT_APP_API_URL
+ const apiUrl = 'https://server-av10.onrender.com'
+//process.env.REACT_APP_API_URL
 axios.defaults.baseURL = apiUrl; 
 
 axios.interceptors.response.use(
