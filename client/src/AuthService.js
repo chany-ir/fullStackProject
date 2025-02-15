@@ -64,12 +64,10 @@ export default {
        console.error("Login failed");
      }
   },
-
   getPublic: async () => {
     const res = await axios.get("api/public");
     return res.data;
   },
-
   getPrivate: async () => {
     const res = await axios.get("api/private");
     console.log("TRY to accept",res.status);
