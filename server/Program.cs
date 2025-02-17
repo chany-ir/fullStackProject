@@ -64,18 +64,6 @@ ValidAudience = builder.Configuration["JWT:Audience"], // קהל היעד של �
         };
     });
 
-// var devCorsPolicy = "devCorsPolicy";
-
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy(devCorsPolicy, builder => {
-//         builder.AllowAnyOrigin()
-//         .AllowAnyMethod().
-//         AllowAnyHeader();
-
-//     });
-// });
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -90,7 +78,6 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 
 var app = builder.Build();
 app.UseCors("AllowAll");
-// app.UseCors(devCorsPolicy);
 app.MapGet("/", () => "chany Irom!");
 
 app.MapGet("/tasks", async (ToDoDbContext dbContext) =>
@@ -109,7 +96,6 @@ app.MapPost("/tasks",async (ToDoDbContext dbContext,Item taskDto) =>
  app.MapPut("/tasks/{id}", async (ToDoDbContext dbContext,int id,Item taskDto) =>
 {
     var items = await dbContext.Items.FindAsync(id);
-    // var items =  dbContext.Items.First(a => a.Id == id);
     if(taskDto.TaskName!=null)
       items.TaskName = taskDto.TaskName;
       if(taskDto.IsComplete!=null)

@@ -27,19 +27,6 @@ namespace AuthServer.Controllers
               _logger = logger;
         }
 
-
-        // [HttpPost("/api/login")]
-        // public async IActionResult Login([FromBody] LoginModel loginModel)
-        // {
-        //     var user = _dataContext.Users?.FirstOrDefault(u => u.Username == loginModel.Name && u.Password == loginModel.Password);
-        //     if (user is not null)
-        //     {
-        //         var jwt = CreateJWT(user);
-        //         await AddSession(user);
-        //         return Ok(jwt);
-        //     }
-        //     return Unauthorized();
-        // }
 [HttpPost("/api/login")]
 public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
 {
@@ -77,8 +64,6 @@ public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
                 {
                     new Claim("id", user.Id.ToString()),
                     new Claim("name", user.Username),
-                    // new Claim("email", user.Email),
-                    // new Claim("role", user.Role)
                 };
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWT:Key")));
@@ -94,16 +79,6 @@ public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
             return new { Token = tokenString };
         }
 
-        // private void AddSession(User user)
-        // {
-        //     _dataContext.Sessions?.Add(new Session {UserId = user.Id, Date = DateTime.Now});
-        //         // }
-        //         private async Task AddSession(User user)
-        // {
-        //     var session = new Session { UserId = user.Id, Date = DateTime.Now };
-        //     await _dataContext.Sessions?.AddAsync(session); // הוספת session
-        //     await _dataContext.SaveChangesAsync(); // שמירת השינויים במסד הנתונים
-        // }
         private async Task AddSession(User user)
         {
             var session = new Session { UserId = user.Id, Date = DateTime.Now };

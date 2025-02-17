@@ -8,13 +8,14 @@
         
         public string? GitHubUrl { get; set; }
         
-        public string? Version { get; set; }
+        // public string? Version { get; set; }
         
-        public string? Technology { get; set; }
+        // public string? Technology { get; set; }
 
         public Application(){
-            Name="chany";
-            Author="dd";
+            Name="fullStackProject";
+            Author="chany";
+           GitHubUrl="https://github.com/chany-ir/fullStackProject";
         }
     }
 

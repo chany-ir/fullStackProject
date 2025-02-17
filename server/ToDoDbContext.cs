@@ -43,25 +43,6 @@ public partial class ToDoDbContext : DbContext
                 .HasColumnName("taskName");
         });
 
-        // modelBuilder.Entity<Session>(entity =>
-        // {
-        //     entity
-        //         .HasNoKey()
-        //         .ToTable("sessions");
-
-        //     entity.HasIndex(e => e.UserId, "user_id");
-
-        //     entity.Property(e => e.Date)
-        //         .HasDefaultValueSql("CURRENT_TIMESTAMP")
-        //         .HasColumnType("timestamp")
-        //         .HasColumnName("date");
-        //     entity.Property(e => e.UserId).HasColumnName("user_id");
-
-        //     entity.HasOne(d => d.User).WithMany()
-        //         .HasForeignKey(d => d.UserId)
-        //         .OnDelete(DeleteBehavior.ClientSetNull)
-        //         .HasConstraintName("sessions_ibfk_1");
-        // });
 modelBuilder.Entity<Session>(entity =>
 {
     // הגדרת המפתח הראשי

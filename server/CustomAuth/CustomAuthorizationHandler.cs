@@ -27,8 +27,6 @@ namespace AuthServer.CustomAuth
             {
                 Id = userId,
                 UserName = context.User.Claims.FirstOrDefault(c => c.Type == "name")?.Value,
-                // Email = context.User.Claims.FirstOrDefault(c => c.Type == "email")?.Value,
-                // Role = context.User.Claims.FirstOrDefault(c => c.Type == "role")?.Value
             });
 
             await defaultHandler.HandleAsync(next, context, policy, authorizeResult);
