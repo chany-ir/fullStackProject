@@ -20,11 +20,6 @@ export default function Register() {
 
   const navigate = useNavigate();
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   await Service.register(name, password);
-  //   navigate("/private", { replace: true });
-  // };
   const handleSubmit = async (event) => {
     event.preventDefault();
     await Service.register(name, password);

@@ -9,40 +9,6 @@ import Typography from "@mui/material/Typography";
 
 export default function Private() {
 
-  // const [newTodo, setNewTodo] = useState("");
-  // const [todos, setTodos] = useState([]);
-
-  // // פונקציות לשליטה במשימות
-  // async function getTodos() {
-  //   const todos = await service.getTasks();
-  //   setTodos(todos);
-  // }
-
-  // async function createTodo(e) {
-  //   e.preventDefault();
-  //   await service.addTask(newTodo);
-  //   setNewTodo(""); // לנקות את שדה הקלט
-  //   await getTodos(); // לרענן את רשימת המשימות
-  // }
-
-  // async function updateCompleted(todo, isComplete) {
-  //   await service.setCompleted(todo.id, isComplete);
-  //   await getTodos();
-  // }
-
-  // async function deleteTodo(id) {
-  //   await service.deleteTask(id);
-  //   await getTodos();
-  // }
-
-  // // אם יש Token, נטען את המשימות
-  // useEffect(() => {
-  //   const token = localStorage.getItem("access_token");
-  //   if (token) {
-  //     getTodos();
-  //   }
-  // }, []);
-
   return (
     <Box
       sx={{

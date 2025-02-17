@@ -36,48 +36,8 @@ export default function Sessions() {
         setSessions([]);  // במקרה של שגיאה, נוודא שהמערך נשאר ריק
       });
   }, []);
-  // const fetchSessions = async () => {
-  //   try {
-  //     const response = await Service.getPrivate();
-  //     setSessions(response); 
-  //     console.log("uyutyuytuy");
-  //      // ודא שאתה מחכה לתשובה לפני העדכון
-  //   } catch (error) {
-  //     console.error("Error fetching sessions:", error);
-  //   }
-  // };
   
-  // useEffect(() => {
-  //   fetchSessions();
-  // }, []);
   return (
-//     <TableContainer component={Paper}>
-//       <Table sx={{ minWidth: 750 }} aria-label="simple table">
-//         <TableHead>
-//           <TableRow>
-//             <TableCell>מזהה</TableCell>
-//             <TableCell>מזהה משתמש</TableCell>
-//             <TableCell>תאריך ושעה</TableCell>
-//           </TableRow>
-//         </TableHead>
-//         <TableBody>
-//           {sessions.map((row) => (
-//             <TableRow
-//               key={row.Number}
-//               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-//             >
-//               <TableCell component="th" scope="row">
-//                 {row.Number}
-//               </TableCell>
-//               <TableCell>{row.userId}</TableCell>
-//               <TableCell>{row.Date}</TableCell>
-//             </TableRow>
-//           ))}
-//         </TableBody>
-//       </Table>
-//     </TableContainer>
-//   );
-// }
 <TableContainer component={Paper}>
       <Table sx={{ minWidth: 750 }} aria-label="simple table">
         <TableHead>

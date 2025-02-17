@@ -78,13 +78,11 @@ public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
             return new { Token = tokenString };
         }
-
         private async Task AddSession(User user)
         {
             var session = new Session { UserId = user.Id, Date = DateTime.Now };
             _dataContext.Sessions?.Add(session);
             await _dataContext.SaveChangesAsync();
-
         }
     }
 }
