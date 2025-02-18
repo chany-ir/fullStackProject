@@ -42,8 +42,8 @@ export default function Sessions() {
       <Table sx={{ minWidth: 750 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>קוד הרשמה </TableCell>
-            <TableCell> קוד מזהה</TableCell>
+            <TableCell>קוד מזהה </TableCell>
+            <TableCell> קוד התחברות </TableCell>
             <TableCell>תאריך ושעה</TableCell>
           </TableRow>
         </TableHead>
